@@ -6,6 +6,8 @@ import * as prismic from '@prismicio/client'
 import { createClient } from '@/prismicio'
 import { components } from '@/slices'
 
+import "./globals.css";
+
 // This component renders your homepage.
 //
 // Use Next's generateMetadata function to render page metadata.
