@@ -85,5 +85,90 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "reverse",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Worse"
+						}
+					}
+				]
+			},
+			"image": {
+				"origin": {
+					"id": "-QOUBSKHvAM",
+					"url": "https://images.unsplash.com/photo-1613260976142-3e9700b7a6a0?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxNnx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzIwNzMyNzQ1fDA&ixlib=rb-4.0.3&q=85",
+					"width": 4960,
+					"height": 3594
+				},
+				"url": "https://images.unsplash.com/photo-1613260976142-3e9700b7a6a0?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxNnx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzIwNzMyNzQ1fDA&ixlib=rb-4.0.3&q=85",
+				"width": 4960,
+				"height": 3594,
+				"edit": {
+					"background": "transparent",
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					}
+				},
+				"credits": null,
+				"alt": "orange fruits on blue ceramic bowl",
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"icon": {
+				"__TYPE__": "FieldContent",
+				"value": "cycle",
+				"type": "Select"
+			},
+			"subheading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Local"
+						}
+					}
+				]
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Veniam esse eu sint. Officia cillum sit velit reprehenderit do et. Reprehenderit quis amet commodo aliquip irure fugiat aute est."
+						}
+					}
+				]
+			},
+			"button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "hurried",
+				"type": "Text"
+			},
+			"button_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]
