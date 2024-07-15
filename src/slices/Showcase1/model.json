@@ -1,7 +1,7 @@
 {
   "id": "showcase",
   "type": "SharedSlice",
-  "name": "Showcase",
+  "name": "Showcase1",
   "description": "Showcase",
   "variations": [
     {
@@ -34,10 +34,7 @@
           "config": {
             "label": "Icon",
             "placeholder": "",
-            "options": [
-              "gear",
-              "cycle"
-            ]
+            "options": ["gear", "cycle"]
           }
         },
         "subheading": {
@@ -106,10 +103,7 @@
           "config": {
             "label": "Icon",
             "placeholder": "",
-            "options": [
-              "gear",
-              "cycle"
-            ]
+            "options": ["gear", "cycle"]
           }
         },
         "subheading": {
