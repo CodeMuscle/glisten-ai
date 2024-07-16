@@ -1,9 +1,12 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SliceZone } from "@prismicio/react";
+import { PrismicText, SliceZone } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
+import Bounded from "@/components/Bounded";
+import StarGrid from "@/components/StarGrid";
+import { PrismicNextImage } from "@prismicio/next";
 
 type Params = { uid: string };
 
@@ -13,7 +16,24 @@ export default async function Page({ params }: { params: Params }) {
     .getByUID("case_study", params.uid)
     .catch(() => notFound());
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  return (
+    <Bounded as="article">
+      <div className="grid relative place-items-center text-center">
+        <StarGrid />
+        <h1 className="text-7xl font-medium">
+          <PrismicText field={page.data.company} />
+          <p className="text-lg text-yellow-500">Case Study</p>
+        </h1>
+        <p className="mb-4 mt-8 max-w-xl text-lg text-slate-300">
+          <PrismicText field={page.data.description} />
+        </p>
+        <PrismicNextImage field={page.data.logo_image} className="rounded-lg" quality={100} />
+      </div>
+      <div className="mx-auto">
+        <SliceZone slices={page.data.slices} components={components} />
+      </div>
+    </Bounded>
+  );
 }
 
 export async function generateMetadata({

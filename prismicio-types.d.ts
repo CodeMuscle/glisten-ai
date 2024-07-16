@@ -103,6 +103,7 @@ export type CaseStudyDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | IntegrationsSlice
   | CaseStudiesSlice
   | ShowcaseSlice
   | BentoSlice
@@ -536,6 +537,78 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *Integrations → Default → Primary*
+ */
+export interface IntegrationsSliceDefaultPrimary {
+  /**
+   * Heading field in *Integrations → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: integrations.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Body field in *Integrations → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: integrations.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Integrations → Items*
+ */
+export interface IntegrationsSliceDefaultItem {
+  /**
+   * Icon field in *Integrations → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: integrations.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  icon: prismic.SelectField<
+    "cloudflare" | "npm" | "github" | "figma" | "digitalocean" | "fly"
+  >;
+}
+
+/**
+ * Default variation for Integrations Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IntegrationsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<IntegrationsSliceDefaultPrimary>,
+  Simplify<IntegrationsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Integrations*
+ */
+type IntegrationsSliceVariation = IntegrationsSliceDefault;
+
+/**
+ * Integrations Shared Slice
+ *
+ * - **API ID**: `integrations`
+ * - **Description**: Integrations
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IntegrationsSlice = prismic.SharedSlice<
+  "integrations",
+  IntegrationsSliceVariation
+>;
+
+/**
  * Primary content in *RichText → Default → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
@@ -581,11 +654,11 @@ export type RichTextSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Showcase1 → Default → Primary*
+ * Primary content in *Showcase → Default → Primary*
  */
 export interface ShowcaseSliceDefaultPrimary {
   /**
-   * Heading field in *Showcase1 → Default → Primary*
+   * Heading field in *Showcase → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -595,7 +668,7 @@ export interface ShowcaseSliceDefaultPrimary {
   heading: prismic.RichTextField;
 
   /**
-   * Image field in *Showcase1 → Default → Primary*
+   * Image field in *Showcase → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -605,7 +678,7 @@ export interface ShowcaseSliceDefaultPrimary {
   image: prismic.ImageField<never>;
 
   /**
-   * Icon field in *Showcase1 → Default → Primary*
+   * Icon field in *Showcase → Default → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
@@ -615,7 +688,7 @@ export interface ShowcaseSliceDefaultPrimary {
   icon: prismic.SelectField<"gear" | "cycle">;
 
   /**
-   * Subheading field in *Showcase1 → Default → Primary*
+   * Subheading field in *Showcase → Default → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: *None*
@@ -625,7 +698,7 @@ export interface ShowcaseSliceDefaultPrimary {
   subheading: prismic.TitleField;
 
   /**
-   * Body field in *Showcase1 → Default → Primary*
+   * Body field in *Showcase → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -635,7 +708,7 @@ export interface ShowcaseSliceDefaultPrimary {
   body: prismic.RichTextField;
 
   /**
-   * Button Text field in *Showcase1 → Default → Primary*
+   * Button Text field in *Showcase → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -645,7 +718,7 @@ export interface ShowcaseSliceDefaultPrimary {
   button_text: prismic.KeyTextField;
 
   /**
-   * Button Link field in *Showcase1 → Default → Primary*
+   * Button Link field in *Showcase → Default → Primary*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -656,7 +729,7 @@ export interface ShowcaseSliceDefaultPrimary {
 }
 
 /**
- * Default variation for Showcase1 Slice
+ * Default variation for Showcase Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -669,11 +742,11 @@ export type ShowcaseSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *Showcase1 → Reverse → Primary*
+ * Primary content in *Showcase → Reverse → Primary*
  */
 export interface ShowcaseSliceReversePrimary {
   /**
-   * Heading field in *Showcase1 → Reverse → Primary*
+   * Heading field in *Showcase → Reverse → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -683,7 +756,7 @@ export interface ShowcaseSliceReversePrimary {
   heading: prismic.RichTextField;
 
   /**
-   * Image field in *Showcase1 → Reverse → Primary*
+   * Image field in *Showcase → Reverse → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -693,7 +766,7 @@ export interface ShowcaseSliceReversePrimary {
   image: prismic.ImageField<never>;
 
   /**
-   * Icon field in *Showcase1 → Reverse → Primary*
+   * Icon field in *Showcase → Reverse → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
@@ -703,7 +776,7 @@ export interface ShowcaseSliceReversePrimary {
   icon: prismic.SelectField<"gear" | "cycle">;
 
   /**
-   * Subheading field in *Showcase1 → Reverse → Primary*
+   * Subheading field in *Showcase → Reverse → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: *None*
@@ -713,7 +786,7 @@ export interface ShowcaseSliceReversePrimary {
   subheading: prismic.TitleField;
 
   /**
-   * Body field in *Showcase1 → Reverse → Primary*
+   * Body field in *Showcase → Reverse → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -723,7 +796,7 @@ export interface ShowcaseSliceReversePrimary {
   body: prismic.RichTextField;
 
   /**
-   * Button Text field in *Showcase1 → Reverse → Primary*
+   * Button Text field in *Showcase → Reverse → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -733,7 +806,7 @@ export interface ShowcaseSliceReversePrimary {
   button_text: prismic.KeyTextField;
 
   /**
-   * Button Link field in *Showcase1 → Reverse → Primary*
+   * Button Link field in *Showcase → Reverse → Primary*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -744,7 +817,7 @@ export interface ShowcaseSliceReversePrimary {
 }
 
 /**
- * Reverse variation for Showcase1 Slice
+ * Reverse variation for Showcase Slice
  *
  * - **API ID**: `reverse`
  * - **Description**: Default
@@ -757,12 +830,12 @@ export type ShowcaseSliceReverse = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *Showcase1*
+ * Slice variation for *Showcase*
  */
 type ShowcaseSliceVariation = ShowcaseSliceDefault | ShowcaseSliceReverse;
 
 /**
- * Showcase1 Shared Slice
+ * Showcase Shared Slice
  *
  * - **API ID**: `showcase`
  * - **Description**: Showcase
@@ -807,6 +880,11 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      IntegrationsSlice,
+      IntegrationsSliceDefaultPrimary,
+      IntegrationsSliceDefaultItem,
+      IntegrationsSliceVariation,
+      IntegrationsSliceDefault,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,

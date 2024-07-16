@@ -1,7 +1,7 @@
 {
   "id": "showcase",
   "type": "SharedSlice",
-  "name": "Showcase1",
+  "name": "Showcase",
   "description": "Showcase",
   "variations": [
     {
