@@ -1,6 +1,6 @@
 // src/slices/Integrations/StarBackground.tsx
 
-'use client'
+"use client";
 
 function StarBackground() {
   return (

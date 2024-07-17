@@ -1,7 +1,11 @@
 import Bounded from "@/components/Bounded";
 import { asText, Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
-import { PrismicRichText, PrismicText, SliceComponentProps } from "@prismicio/react";
+import {
+  PrismicRichText,
+  PrismicText,
+  SliceComponentProps,
+} from "@prismicio/react";
 import clsx from "clsx";
 
 /**

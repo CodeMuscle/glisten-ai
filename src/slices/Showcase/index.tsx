@@ -7,11 +7,10 @@ import clsx from "clsx";
 
 import { PiArrowsClockwise, PiGear } from "react-icons/pi";
 
-
 const icons = {
   gear: <PiGear />,
-  cycle: <PiArrowsClockwise />
-}
+  cycle: <PiArrowsClockwise />,
+};
 
 /**
  * Props for `Showcase`.
@@ -38,7 +37,7 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
         }}
         field={slice.primary.heading}
       />
-      <div className="mt-16 grid items-center rounded-xl border border-blue-50/20 bg-gradient-to-b from-slate-50/15 to-slate-50/5 p-8 backdrop-blur-sm lg:grid-cols-3 lg:py-12 gap-8 lg:gap-0">
+      <div className="mt-16 grid items-center gap-8 rounded-xl border border-blue-50/20 bg-gradient-to-b from-slate-50/15 to-slate-50/5 p-8 backdrop-blur-sm lg:grid-cols-3 lg:gap-0 lg:py-12">
         <div>
           <div className="w-fit rounded-lg bg-blue-500/35 p-4 text-3xl">
             <>{slice.primary.icon && icons[slice.primary.icon]}</>
@@ -47,15 +46,23 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
             <PrismicRichText field={slice.primary.subheading} />
           </div>
 
-          <div className="mt-4 max-w-xl prose prose-invert">
+          <div className="prose prose-invert mt-4 max-w-xl">
             <PrismicRichText field={slice.primary.body} />
           </div>
 
           <ButtonLink className="mt-6" field={slice.primary.button_link}>
-            {slice.primary.button_text || 'Learn More'}
+            {slice.primary.button_text || "Learn More"}
           </ButtonLink>
         </div>
-        <PrismicNextImage field={slice.primary.image} className={clsx("opacity-90 shadow-2xl lg:col-span-2 lg:pt-0", slice.variation === "reverse" ? "lg:order-1 lg:translate-x-[10%] rounded-xl border border-blue-50/20" : "lg:-order-1 lg:-translate-x-[10%] rounded-xl border border-blue-50/20")} />
+        <PrismicNextImage
+          field={slice.primary.image}
+          className={clsx(
+            "opacity-90 shadow-2xl lg:col-span-2 lg:pt-0",
+            slice.variation === "reverse"
+              ? "rounded-xl border border-blue-50/20 lg:order-1 lg:translate-x-[10%]"
+              : "rounded-xl border border-blue-50/20 lg:-order-1 lg:-translate-x-[10%]",
+          )}
+        />
       </div>
     </Bounded>
   );
