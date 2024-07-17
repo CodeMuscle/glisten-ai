@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from "react";
 import ButtonLink from "@/components/ButtonLink";
 import StarGrid from "@/components/StarGrid";
 import { PrismicNextImage } from "@prismicio/next";
@@ -8,9 +7,9 @@ import { Content, isFilled } from "@prismicio/client";
 import {
   PrismicRichText,
   PrismicText,
-  SliceComponentProps,
 } from "@prismicio/react";
 
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
