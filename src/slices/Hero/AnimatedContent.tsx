@@ -51,13 +51,13 @@ function AnimatedContent({ slice }: { slice: Content.HeroSlice }) {
         ".hero__image",
         { y: 100 },
         { y: 0, opacity: 1, duration: 1.3 },
-        "+=0.3",
+        "-=0.8",
       );
       tl.fromTo(
         ".hero__glow",
         { scale: 0.5 },
         { scale: 1, opacity: 1, duration: 1.8 },
-        "-=1",
+        "-=0.8",
       );
     },
     { scope: container },
